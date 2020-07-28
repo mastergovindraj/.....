@@ -1,0 +1,70 @@
+create table SALESPEOPLE
+(
+ Snum int(4),
+ Sname varchar(10),
+ SCity varchar(10),
+ SComm float(3,2),
+);
+insert into SALESPEOPLE(Snum,Sname,Scity,Scomm)
+values(1001,'peel','London',.12);
+insert into SALESPEOPLE(Snum,Sname,Scity,Scomm)
+values(1002,'Serres','San jose',.13);
+insert into SALESPEOPLE(Snum,Sname,Scity,Scomm)
+values(1004,'Motika','London',.11);
+insert into SALESPEOPLE(Snum,Sname,Scity,Scomm)
+values(1007,'Rifkin','Barcelona',.15);
+insert into SALESPEOPLE(Snum,Sname,Scity,Scomm)
+values(1001,'Axelrod','New York',.10);
+select *SALESPEOPLE;
+
+create table CUSTOMER
+(
+Cnum int(4),
+Cname varchar(10),
+CCity varchar(10),
+Crating int(4),
+Snum int(4),
+);
+insert into CUSTUMER(Cnum,Cname,Ccity,Crating,Snum)
+values(2001,'Hoffman','London',100,1001);
+insert into CUSTUMER(Cnum,Cname,Ccity,Crating,Snum)
+values(2001,'Giovanni','Rome',200,1003);
+insert into CUSTUMER(Cnum,Cname,Ccity,Crating,Snum)
+values(2003,'Liu','San Jose',200,1002);
+insert into CUSTUMER(Cnum,Cname,Ccity,Crating,Snum)
+values(2004,'Grass','Berlin',300,1002);
+insert into CUSTUMER(Cnum,Cname,Ccity,Crating,Snum)
+values(2006,'Clemens','London',100,1001);
+insert into CUSTUMER(Cnum,Cname,Ccity,Crating,Snum)
+values(2008,'Cisneros','San Jose',300,1007);
+insert into CUSTUMER(Cnum,Cname,Ccity,Crating,Snum)
+values(2007,'Pereira','Rome',100,1004);
+select *CUSTOMER
+
+create table ORDERS
+(
+Onum int(4),
+OAmt float(7,2),
+Odate date,
+Cnum int(4);
+Snum int(4);
+);
+insert into ORDERS(Onum,OAmt,Odate,Cnum,Snum)
+values(3001,18.69,03-oct-1990,2008,1007)
+insert into ORDERS(Onum,OAmt,Odate,Cnum,Snum)
+values(3003,767.19,03-oct-1990,2001,1001)
+insert into ORDERS(Onum,OAmt,Odate,Cnum,Snum)
+values(3002,1900.10,03-oct-1990,2007,1004)
+insert into ORDERS(Onum,OAmt,Odate,Cnum,Snum)
+values(3005,5160.45,03-oct-1990,2003,1002)
+insert into ORDERS(Onum,OAmt,Odate,Cnum,Snum)
+values(3006,1098.16,04-oct-1990,2008,1007)
+insert into ORDERS(Onum,OAmt,Odate,Cnum,Snum)
+values(3001,1713.23,04-oct-1990,2002,1003)
+insert into ORDERS(Onum,OAmt,Odate,Cnum,Snum)
+values(3007,75.75,04-oct-1990,2004,1002)
+insert into ORDERS(Onum,OAmt,Odate,Cnum,Snum)
+values(3008,4723.00,05-oct-1990,2006,1001)
+insert into ORDERS(Onum,OAmt,Odate,Cnum,Snum)
+values(3010,1309.95,06-oct-1990,2004,1002)
+select *orders
