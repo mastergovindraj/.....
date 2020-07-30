@@ -1,0 +1,13 @@
+1)Which field of the Customers table is the primary key?
+... CNUM.
+
+2)What is the 4th column of the Customers table?
+-->Rating
+
+3)What is another word for row? For column?
+-->Another word for row : "Tuple","Entity","Opportunity".
+-->Another word for column: "Attribute", "Method".
+
+4)Why isn’t it possible to see the first five rows of a table?
+-->No its not possible because in RDBMS row is stored whereever memory is available and 
+     hence while retrieving rows are displayed as per their address in ascending order.
