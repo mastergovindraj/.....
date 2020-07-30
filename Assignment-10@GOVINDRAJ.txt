@@ -1,0 +1,15 @@
+                                         Assignment 10
+                                         -------------
+
+1.
+SELECT m.sname, n.sname, m.city
+FROM salespeople m, salespeople n
+WHERE m.city=n.city
+  AND m.sname<n.sname;
+2.
+SELECT cname, city
+FROM customers
+WHERE rating =
+    (SELECT rating
+     FROM customers
+     WHERE cname='hoffman');

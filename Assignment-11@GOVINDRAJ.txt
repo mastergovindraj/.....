@@ -1,0 +1,26 @@
+                                                   ASSIGNMENT 11
+                                                   -------------
+1......
+SELECT onum "ALL ORDERS",cnum
+FROM orders
+WHERE cnum=
+    (SELECT cnum
+     FROM customers
+     WHERE cname='cisneros');
+2......  
+SELECT cname,rating
+FROM customers
+WHERE cnum IN
+    (SELECT cnum
+     FROM orders
+     WHERE amt >
+         (SELECT avg(amt)
+          FROM orders));
+    
+3......
+SELECT sum(amt)
+FROM orders
+GROUP BY snum
+HAVING sum(amt)>
+  (SELECT max(amt)
+   FROM orders);

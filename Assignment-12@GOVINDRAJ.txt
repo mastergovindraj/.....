@@ -1,0 +1,38 @@
+                                               ASSIGNMENT 12
+                                               -------------
+ 1.....
+  SELECT *
+FROM customers
+WHERE rating >=ANY
+    ( SELECT rating
+     FROM customers
+     WHERE snum IN
+         ( SELECT snum
+          FROM salespeople
+          WHERE sname='serres' ) );
+  2......        
+SELECT snum
+FROM salespeople
+WHERE (snum,
+       city) NOT IN
+    (SELECT snum,city
+     FROM customers);
+3......     
+SELECT *
+FROM orders
+WHERE amt> ANY
+    ( SELECT amt
+     FROM orders
+     WHERE cnum IN
+         ( SELECT cnum
+          FROM customers
+          WHERE city='london' ) );
+4.......
+SELECT *
+FROM orders
+WHERE amt>
+    (SELECT min(amt)
+     FROM customers
+     NATURAL JOIN orders
+     WHERE city='london');
+     

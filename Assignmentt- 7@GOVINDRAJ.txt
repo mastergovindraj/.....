@@ -1,0 +1,129 @@
+
+                                               ASSIGNMENT-7
+                                               ------------
+
+1) Write a query that counts all orders for October 3.
+
+=>SELECT count(onum) total_order FROM orders WHERE odate LIKE '03-OCT-%';
+
+
+
+2) Write a query that counts the number of different non-NULL city values in the
+Customers table.
+
+=>SELECT count(onum) total_order FROM orders WHERE odate LIKE '03-OCT-%';
+
+3) Write a query that selects each customer’s smallest order.
+
+=>SELECT min(amt)"smallest order",cnum FROM orders GROUP BY cnum;
+                 
+
+
+
+4) Write a query that selects the first customer, in alphabetical order, whose name
+begins with G.
+
+=>SELECT * FROM customers WHERE cname LIKE 'G%' ORDER BY cname;
+
+
+
+
+5) Write a query that selects the highest rating in each city.
+
+=>SELECT max(rating) "highest rating" FROM customers;
+
+
+
+6) Write a query that counts the number of salespeople registering orders for each
+day. (If a salesperson has more than one order on a given day, he or she should be
+counted only once.).
+
+=> SELECT count(odate)||' SALES PERSON REGISTREDDON' "TOTAL", odate FROM orders GROUP BY odate;
+
+
+
+
+
+
+
+
+
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| cdac               |
+| cdac_juhu          |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+6 rows in set (0.05 sec)
+
+mysql> use cdac;
+Database changed
+mysql> SELECT count(onum) total_order FROM orders WHERE odate LIKE '03-OCT-%';
++-------------+
+| total_order |
++-------------+
+|           0 |
++-------------+
+1 row in set, 1 warning (0.14 sec)
+
+mysql> SELECT count(cname) empty_city FROM customers WHERE cname IS NOT NULL;
++------------+
+| empty_city |
++------------+
+|          6 |
++------------+
+1 row in set (0.03 sec)
+
+mysql> SELECT min(amt)"smallest order",cnum FROM orders GROUP BY cnum;
++----------------+------+
+| smallest order | cnum |
++----------------+------+
+|         767.19 | 2001 |
+|          75.75 | 2004 |
+|        1900.10 | 2007 |
+|          18.69 | 2008 |
++----------------+------+
+4 rows in set (0.15 sec)
+
+mysql> SELECT * FROM customers WHERE cname LIKE 'G%' ORDER BY cname;
++------+----------+--------+--------+------+
+| Cnum | Cname    | City   | Rating | Snum |
++------+----------+--------+--------+------+
+| 2002 | Giovanni | Rome   |    200 | 1003 |
+| 2004 | Grass    | Berlin |    300 | 1002 |
++------+----------+--------+--------+------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT max(rating) "highest rating" FROM customers;
++----------------+
+| highest rating |
++----------------+
+|            300 |
++----------------+
+1 row in set (0.06 sec)
+
+mysql> SELECT count(odate)||' SALES PERSON REGISTREDDON' "TOTAL", odate FROM orders GROUP BY odate;
++----------------------------------------------------+------------+
+| count(odate)||' SALES PERSON REGISTREDDON' "TOTAL" | odate      |
++----------------------------------------------------+------------+
+|                                                  1 | 1990-10-03 |
+|                                                  1 | 1990-10-04 |
+|                                                  1 | 1990-10-30 |
++----------------------------------------------------+------------+
+3 rows in set (0.03 sec)
+
+mysql>
+
+       
+

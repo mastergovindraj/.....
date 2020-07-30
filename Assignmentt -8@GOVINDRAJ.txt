@@ -1,0 +1,85 @@
+                                       ASSIGNMENT-8
+
+1) Assume each salesperson has a 12% commission. Write a query on the orders
+table that will produce the order number, the salesperson number, and the amount
+of the salesperson’s commission for that order.
+
+=> SELECT onum,snum,amt,(amt*12)/100 commision FROM orders;
+
+
+2) Write a query on the Customers table that will find the highest rating in each city.
+Put the output in this form:
+For the city (city), the highest rating is : (rating).
+
+=>SELECT onum,snum,amt,(amt*12)/100 commision FROM orders;
+
+
+3) Write a query that lists customers in descending order of rating. Output the rating
+field first, followed by the customer’s name and number.
+
+=>SELECT rating, cname,snum FROM customers ORDER BY rating DESC;
+
+
+
+4) Write a query that totals the orders for each day and places the results in
+descending order.
+
+=>SELECT count(odate) "TOTAL ORDERS",odate FROM orders GROUP BY odate ORDER BY "TOTAL ORDERS";
+
+
+
+
+
+
+
+
+
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+mysql> SELECT onum,snum,amt,(amt*12)/100 commision FROM orders;
++------+------+---------+------------+
+| onum | snum | amt     | commision  |
++------+------+---------+------------+
+| 3001 | 1007 |   18.69 |   2.242800 |
+| 3002 | 1004 | 1900.10 | 228.011997 |
+| 3003 | 1001 |  767.19 |  92.062800 |
+| 3007 | 1002 |   75.75 |   9.090000 |
++------+------+---------+------------+
+4 rows in set (0.16 sec)
+
+mysql> SELECT onum,snum,amt,(amt*12)/100 commision FROM orders;
++------+------+---------+------------+
+| onum | snum | amt     | commision  |
++------+------+---------+------------+
+| 3001 | 1007 |   18.69 |   2.242800 |
+| 3002 | 1004 | 1900.10 | 228.011997 |
+| 3003 | 1001 |  767.19 |  92.062800 |
+| 3007 | 1002 |   75.75 |   9.090000 |
++------+------+---------+------------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT rating, cname,snum FROM customers ORDER BY rating DESC;
++--------+----------+------+
+| rating | cname    | snum |
++--------+----------+------+
+|    300 | Grass    | 1002 |
+|    300 | Cisneros | 1007 |
+|    200 | Giovanni | 1003 |
+|    200 | Liu      | 1002 |
+|    100 | Hoffman  | 1001 |
+|    100 | Clemens  | 1001 |
++--------+----------+------+
+6 rows in set (0.07 sec)
+
+mysql> SELECT count(odate) "TOTAL ORDERS",odate FROM orders GROUP BY odate ORDER BY "TOTAL ORDERS";
++--------------+------------+
+| TOTAL ORDERS | odate      |
++--------------+------------+
+|            2 | 1990-10-03 |
+|            1 | 1990-10-30 |
+|            1 | 1990-10-04 |
++--------------+------------+
+3 rows in set (0.03 sec)
